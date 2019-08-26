@@ -29,15 +29,17 @@ public class A1Jedi {
 			for (Person p : customers) {
 				// This runs for each customer who visited the store.  
 				Item[] itemsOfThisPerson = p.getItems();
-				Item thisItem; // This represents the main item that we are looking for.
-				thisItem = getItemByName(item.getName(), itemsOfThisPerson);
+				Item[] theseItems; // This represents the main item(s) that we are looking for.
+				theseItems = getItemsByName(item.getName(), itemsOfThisPerson);
 				
-				if (thisItem != null) {
+				if (theseItems != null) {
 					// This runs if the person actually bought the item.
 					numCustomers++;
 					
 					// Now, add how many times the item was bought to the total:
-					totalPurchases += thisItem.getNumberBought();
+					for (Item i : theseItems) {
+						totalPurchases += i.getNumberBought();
+					}
 				}
 				
 			}
@@ -97,5 +99,29 @@ public class A1Jedi {
 			}
 		}
 		return null;
+	}
+	
+	private static Item[] getItemsByName(String name, Item[] items) {
+		// Get number of items that have name "name"
+		int outputNum = 0;
+		for (Item i : items) {
+			if (i.getName().equals(name)) {
+				outputNum++;
+			}
+		}
+		if (outputNum == 0) {
+			return null;
+		}
+		
+		// Select these items and add the to the return object
+		Item[] output = new Item[outputNum];
+		int numberAdded = 0;
+		for (Item i : items) {
+			if (i.getName().equals(name)) {
+				output[numberAdded] = i;
+				numberAdded++;
+			}
+		}
+		return output;
 	}
 }
