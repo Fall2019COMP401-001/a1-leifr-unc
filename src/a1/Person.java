@@ -49,4 +49,8 @@ public class Person {
 		DecimalFormat formatter = new DecimalFormat("#0.00");
 		return getFormattedName() + ": " + formatter.format(getTotalSpent());
 	}
+	
+	public Item[] getItems() {
+		return items;
+	}
 }
