@@ -1,7 +1,7 @@
 package a1;
 
 
-//Item objects.  These store just three variables: a name, a price, and number bought.
+// Item object type.  These store just three variables: a name, a price, and number bought.
 class Item {
 	private String name;
 	private double price;

@@ -2,7 +2,9 @@ package a1;
 
 import java.text.DecimalFormat;
 
-//Person objects.  These must store the first and last name, and the items bought.  
+// Person objects.  These must store the first and last name, and the items bought.  
+// They can contain items, making calculating how much these people spent easy.    
+
 public class Person {
 	
 	String fName;
