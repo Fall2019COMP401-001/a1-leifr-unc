@@ -1,3 +1,11 @@
+/* 
+ * Author: Leif Rasmussen
+ * Date: August 25, 2019
+ * Purpose: To parse input data from the console and print info about how
+ * many people bought each item, and about the number of times that each 
+ * item was purchased.
+ */
+
 package a1;
 
 import java.util.Scanner;
@@ -16,7 +24,7 @@ public class A1Jedi {
 		scan.close();
 		
 		
-		// Next, analyze the results and then print.
+		// Next, analyze the results and print at the same time.
 		for (Item item : storeItems) {
 			// This loop runs for each item in the store.
 			// Each iteration of this loop prints one line to the console.
@@ -55,6 +63,14 @@ public class A1Jedi {
 		
 	}
 	
+	/* 
+	 * This method parses data from the console and updates the "items" 
+	 * and "customers" arrays accordingly.  All info parsed is in some 
+	 * way saved in those two arrays for later use.
+	 * 
+	 * The input is expected to follow the format found in README.md, 
+	 * and if it doesn't follow that format, an exception will be thrown. 
+	 */
 	public static void parseData() {
 		// First input is an integer indicating number of items in the store.
 		int numStoreItems = scan.nextInt();
@@ -92,6 +108,10 @@ public class A1Jedi {
 		}
 	}
 	
+	/*
+	 * This method searches through the input "items" array, and
+	 * returns the first item with a name equal to the value of "name"
+	 */
 	private static Item getItemByName(String name, Item[] items) {
 		for (Item i : items) {
 			if (i.getName().equals(name)) {
@@ -101,6 +121,10 @@ public class A1Jedi {
 		return null;
 	}
 	
+	/*
+	 * This method searches through the input "items" array, and returns every 
+	 * item with a name equal to the value of "name".
+	 */
 	private static Item[] getItemsByName(String name, Item[] items) {
 		// Get number of items that have name "name"
 		int outputNum = 0;
